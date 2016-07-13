@@ -81,7 +81,7 @@ message MapTile {
   message PokemonTwo {
     required string id = 1;
     required fixed64 t1 = 2;
-    required int32 pkmn_no = 3
+    required int32 pkmn_no = 3;
     required int32 time = 4;
     required fixed64 lat = 5;
     required fixed64 lng = 6;
