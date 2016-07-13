@@ -21,7 +21,6 @@ message ResponseEnvelop {
 }
 
 // --- List of message tiles for "response" --- \\
-
 message MapTile {
   required int64 id = 1;
   required int64 timestamp = 2;
@@ -41,14 +40,24 @@ message MapTile {
   // Pokestop or Gym
   message Fort {
     required string id = 1;
-    required int32 time = 2;
+    required int32 timestamp = 2;
     required fixed64 lat = 3;
     required fixed64 lng = 4;
-    optional int32 unknown5 = 5;
-    optional int32 unknown6 = 6;
+    optional int32 team = 5; // blue=1, red=2, yellow=3
+    optional int32  = 6;
     optional int32 unknown8 = 8;
     optional int32 unknown9 = 9; // activated?
     optional int32 prestige = 10;
+    optional LureInfo lure = 13;
+    optional int64 reset_time = 14;
+
+    message LureInfo {
+      required bytes pokestop_id = 1;
+      required fixed64 unknown2 = 2;
+      required int32 unknown3 = 3;
+      required int64 expire_time = 4;
+    }
+
   }
 
   message GPS {
