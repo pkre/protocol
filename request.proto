@@ -3,8 +3,10 @@ message RequestEnvelop {
   optional int64 rpc_id = 3;
   repeated Requests requests = 4;
   optional Unknown6 unknown6 = 6;
+  optional fixed64 gps_x = 7;
+  optional fixed64 gps_y = 8;
+  optional fixed64 gps_z = 9;
   optional AuthInfo auth = 10;
-
   optional int64 unknown12 = 12;
 
   message Requests {
