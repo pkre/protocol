@@ -1,0 +1,32 @@
+message RequestEnvelop {
+  required int32 unknown1 = 1;
+  optional int64 rpc_id = 3;
+  repeated Requests requests = 4;
+  optional Unknown6 unknown6 = 6;
+  optional AuthInfo auth = 10;
+
+  optional int64 unknown12 = 12;
+
+  message Requests {
+    required int32 type = 1;
+    optional bytes message = 2;
+  }
+
+  message Unknown6 {
+    required int32 unknown1 = 1;
+    required Unknown2 unknown2 = 2;
+
+    message Unknown2 {
+      required bytes unknown1 = 1;
+    }
+
+  }
+  message AuthInfo {
+    required string provider = 1;
+    required JWT token = 2;
+
+    message JWT {
+      required string contents = 1;
+    }
+  }
+}
