@@ -28,11 +28,11 @@ message MapTile {
   repeated PokemonOne visible = 5;
   optional GPS unknown9 = 9;
   optional PokemonTwo unknown10 = 10;
-  optional Unknown11 unknown11 = 11;
+  optional NearByPokemon hidden = 11;
 
-  message Unknown11 {
-    required int32 unknown1 = 1;
-    required fixed32 unknown2 = 2;
+  message NearByPokemon {
+    required int32 pkmn_no = 1;
+    required fixed32 distance = 2;
     required fixed64 unknown3 = 3;
   }
 
@@ -43,20 +43,20 @@ message MapTile {
     required fixed64 lat = 3;
     required fixed64 lng = 4;
     optional int32 team = 5; // blue=1, red=2, yellow=3
-    optional int32  = 6;
+    optional int32 gym_pokemon_id = 6;
     optional int32 unknown8 = 8;
-    optional int32 unknown9 = 9; // activated?
+    optional int32 is_pokestop = 9;
     optional int32 prestige = 10;
+    optional int32 active_module = 11;
     optional LureInfo lure = 13;
     optional int64 reset_time = 14;
 
     message LureInfo {
       required bytes pokestop_id = 1;
       required fixed64 unknown2 = 2;
-      required int32 unknown3 = 3;
+      required int32 unknown3 = 3; // apprently the pokemon id that will appear
       required int64 expire_time = 4;
     }
-
   }
 
   message GPS {
