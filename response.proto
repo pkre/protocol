@@ -6,8 +6,7 @@ message ResponseEnvelop {
   repeated Response responses = 100;
 
   message Response {
-    required int32 type = 1;
-    optional bytes message = 2;
+    required bytes message = 1;
   }
 
   message Unknown6 {
