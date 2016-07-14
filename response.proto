@@ -21,35 +21,39 @@ message ResponseEnvelop {
 
 // --- List of message tiles for "response" --- \\
 message MapTile {
-  required int64 id = 1;
+  required int64 map_cell_id = 1;
   required int64 timestamp = 2;
   repeated Fort forts = 3;
-  repeated GPS grass = 4;
-  repeated PokemonOne visible = 5;
-  optional GPS unknown9 = 9;
-  optional PokemonTwo unknown10 = 10;
-  optional NearByPokemon hidden = 11;
+  repeated ClientSpawnPoint spawn_point = 4; // grass?
+  repeated WildPokemon wild_pokemon = 5;
+  optional int32 is_truncated = 1;
+  optional ClientSpawnPoint decimated_spawn_point = 9; //wtf?
+  optional MapPokemon catchable_pokemon = 10;
+  optional NearbyPokemon nearby_pokemon = 11;
 
-  message NearByPokemon {
-    required int32 pkmn_no = 1;
-    required fixed32 distance = 2;
-    required fixed64 unknown3 = 3;
+  message NearbyPokemon {
+    required int32 pokedex_number = 1;
+    required fixed32 distance_meters = 2;
+    required fixed64 encounter_id = 3;
   }
 
   // Pokestop or Gym
+  // dump.proto L808
   message Fort {
-    required string id = 1;
-    required int32 timestamp = 2;
+    required string fort_id = 1;
+    required int32 last_modified_time = 2;
     required fixed64 lat = 3;
     required fixed64 lng = 4;
     optional int32 team = 5; // blue=1, red=2, yellow=3
-    optional int32 gym_pokemon_id = 6;
-    optional int32 unknown8 = 8;
-    optional int32 is_pokestop = 9;
-    optional int32 prestige = 10;
+    optional int32 guard_pokemon_id = 6;
+    optional int32 guard_pokemon_level = 7;
+    optional int32 enabled = 8;
+    optional int32 fort_type = 9;
+    optional int32 gym_points = 10; // prestige
     optional int32 active_module = 11;
+    // TODO: verify the dump.proto is correct
     optional LureInfo lure = 13;
-    optional int64 reset_time = 14;
+    optional int64 cooldown_complete_time = 14;
 
     message LureInfo {
       required bytes pokestop_id = 1;
@@ -59,30 +63,32 @@ message MapTile {
     }
   }
 
-  message GPS {
+  // dump.proto L832
+  message ClientSpawnPoint {
     required fixed64 lat = 2;
     required fixed64 lng = 3;
   }
-
-  message PokemonOne {
-    required fixed64 t1 = 1;
-    required int32 time = 2;
+  // dump.proto L836
+  message WildPokemon {
+    required fixed64 encounter_id = 1;
+    required int64 last_modified_time = 2;
     required fixed64 lat = 3;
     required fixed64 lng = 4;
-    required string id = 5;
+    required string spawn_point_id = 5;
     required PokeInfo info = 7;
-    required int32 t2 = 11;
+    required int64 time_till_hidden = 11;
 
     message PokeInfo {
       required int32 number = 2;
     }
   }
 
-  message PokemonTwo {
-    required string id = 1;
-    required fixed64 t1 = 2;
+  // dump.proto L846
+  message MapPokemon {
+    required string spawn_point_id = 1;
+    required fixed64 encounter_id = 2;
     required int32 pkmn_no = 3
-    required int32 time = 4;
+    required int32 time = 4; //disapper time
     required fixed64 lat = 5;
     required fixed64 lng = 6;
   }

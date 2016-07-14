@@ -1,0 +1,1138 @@
+// thanks to tkpxer for the dump :)
+// types are wrong, and so are lot of field numbers
+message AssetDigestRequestProto {
+ int32 Platform = 1;
+ int32 DeviceManufacturer = 2;
+ int32 DeviceModel = 3;
+ int32 Locale = 4;
+ int32 AppVersion = 5;
+}
+message AssetDigestEntryProto {
+ int32 AssetId = 1;
+ int32 BundleName = 2;
+ int32 Version = 3;
+ int32 Checksum = 4;
+ int32 Size = 5;
+ int32 Key = 6;
+}
+message AssetDigestOutProto {
+ int32 Digest = 1;
+ int32 Timestamp = 2;
+}
+message DownloadUrlRequestProto {
+ int32 AssetId = 1;
+}
+message DownloadUrlEntryProto {
+ int32 AssetId = 1;
+ int32 Url = 2;
+ int32 Size = 3;
+ int32 Checksum = 4;
+}
+message DownloadUrlOutProto {
+ int32 DownloadUrls = 1;
+}
+message CollectDailyBonusProto {
+}
+message CollectDailyBonusOutProto {
+ int32 Result = 1;
+}
+message CollectDailyDefenderBonusProto {
+}
+message CollectDailyDefenderBonusOutProto {
+ int32 Result = 1;
+ int32 CurrencyType = 2;
+ int32 CurrencyAwarded = 3;
+ int32 NumDefenders = 4;
+}
+message EchoProto {
+}
+message EchoOutProto {
+ int32 Context = 1;
+}
+message GetHatchedEggsProto {
+}
+message GetHatchedEggsOutProto {
+ int32 Success = 1;
+ int32 PokemonId = 2;
+ int32 ExpAwarded = 3;
+ int32 CandyAwarded = 4;
+ int32 StardustAwarded = 5;
+}
+message EncounterProto {
+ int32 EncounterId = 1;
+ int32 SpawnpointId = 2;
+ int32 PlayerLatDegrees = 3;
+ int32 PlayerLngDegrees = 4;
+}
+message EncounterOutProto {
+ int32 Pokemon = 1;
+ int32 Background = 2;
+ int32 Status = 3;
+ int32 CaptureProbability = 4;
+}
+message CatchPokemonProto {
+ int32 EncounterId = 1;
+ int32 Pokeball = 2;
+ int32 NormalizedReticleSize = 3;
+ int32 SpawnPointGuid = 4;
+ int32 HitPokemon = 5;
+ int32 SpinModifier = 6;
+ int32 NormalizedHitPosition = 7;
+}
+message CatchPokemonOutProto {
+ int32 Status = 1;
+ int32 MissPercent = 2;
+ int32 CapturedPokemonId = 3;
+ int32 Scores = 4;
+}
+message UseItemCaptureProto {
+ int32 Item = 1;
+ int32 EncounterId = 2;
+ int32 SpawnPointGuid = 3;
+}
+message UseItemCaptureOutProto {
+ int32 Success = 1;
+ int32 ItemCaptureMult = 2;
+ int32 ItemFleeMult = 3;
+ int32 StopMovement = 4;
+ int32 StopAttack = 5;
+ int32 TargetMax = 6;
+ int32 TargetSlow = 7;
+}
+message EncounterTutorialCompleteProto {
+ int32 PokedexId = 1;
+}
+message EncounterTutorialCompleteOutProto {
+ int32 Result = 1;
+ int32 Pokemon = 2;
+ int32 Scores = 3;
+}
+message CaptureProbabilityProto {
+ int32 PokeballType = 1;
+ int32 CaptureProbability = 2;
+ int32 ReticleDifficultyScale = 12;
+}
+message CaptureScoreProto {
+ int32 ActivityType = 1;
+ int32 Exp = 2;
+ int32 Candy = 3;
+ int32 Stardust = 4;
+}
+message UseIncenseActionProto {
+ int32 IncenseType = 1;
+}
+message UseIncenseActionOutProto {
+ int32 Result = 1;
+ int32 AppliedIncense = 2;
+}
+message GetIncensePokemonProto {
+ int32 PlayerLatDegrees = 1;
+ int32 PlayerLngDegrees = 2;
+}
+message GetIncensePokemonOutProto {
+ int32 Result = 1;
+ int32 PokemonTypeId = 2;
+ int32 Lat = 3;
+ int32 Lng = 4;
+ int32 EncounterLocation = 5;
+ int32 EncounterId = 6;
+ int32 DisappearTimeMs = 7;
+}
+message IncenseEncounterProto {
+ int32 EncounterId = 1;
+ int32 EncounterLocation = 2;
+}
+message IncenseEncounterOutProto {
+ int32 Result = 1;
+ int32 Pokemon = 2;
+ int32 CaptureProbability = 3;
+}
+message DiskEncounterProto {
+ int32 EncounterId = 1;
+ int32 FortId = 2;
+ int32 PlayerLatDegrees = 3;
+ int32 PlayerLngDegrees = 4;
+}
+message DiskEncounterOutProto {
+ int32 Result = 1;
+ int32 Pokemon = 2;
+ int32 CaptureProbability = 3;
+}
+message EvolvePokemonProto {
+ int32 PokemonId = 1;
+}
+message EvolvePokemonOutProto {
+ int32 Result = 1;
+ int32 EvolvedPokemon = 2;
+ int32 ExpAwarded = 3;
+ int32 CandyAwarded = 4;
+}
+message AwardItemProto {
+ int32 Item = 1;
+ int32 ItemCount = 2;
+}
+message FortSearchProto {
+ int32 Id = 1;
+ int32 PlayerLatDegrees = 2;
+ int32 PlayerLngDegrees = 3;
+ int32 FortLatDegrees = 4;
+ int32 FortLngDegrees = 5;
+}
+message FortSearchOutProto {
+ int32 Result = 1;
+ int32 Items = 2;
+ int32 GemsAwarded = 3;
+ int32 EggPokemon = 4;
+ int32 XpAwarded = 5;
+ int32 CooldownComplete = 6;
+ int32 ChainHackSequenceNumber = 7;
+}
+message FortDetailsProto {
+ int32 Id = 1;
+ int32 Latitude = 2;
+ int32 Longitude = 3;
+}
+message FortDetailsOutProto {
+ int32 Id = 1;
+ int32 Team = 2;
+ int32 Pokemon = 3;
+ int32 Name = 4;
+ int32 ImageUrl = 5;
+ int32 Fp = 6;
+ int32 Stamina = 7;
+ int32 MaxStamina = 8;
+ int32 FortType = 9;
+ int32 Latitude = 10;
+ int32 Longitude = 11;
+ int32 Description = 12;
+ int32 Modifier = 13;
+}
+message ClientFortModifierProto {
+ int32 ModifierType = 1;
+ int32 ExpirationTimeMs = 2;
+ int32 DeployingPlayerCodename = 3;
+}
+message FortDeployProto {
+ int32 FortId = 1;
+ int32 PokemonId = 2;
+ int32 PlayerLatDegrees = 3;
+ int32 PlayerLngDegrees = 4;
+}
+message FortDeployOutProto {
+ int32 Result = 1;
+ int32 FortDetailsOutProto = 2;
+ int32 EggPokemon = 3;
+ int32 GymStateProto = 4;
+}
+message FortRecallProto {
+ int32 FortId = 1;
+ int32 PokemonId = 2;
+ int32 PlayerLatDegrees = 3;
+ int32 PlayerLngDegrees = 4;
+}
+message FortRecallOutProto {
+ int32 Result = 1;
+ int32 FortDetailsOutProto = 2;
+}
+message AddFortModifierProto {
+ int32 ModifierType = 1;
+ int32 FortId = 2;
+ int32 PlayerLatDegrees = 3;
+ int32 PlayerLngDegrees = 4;
+}
+message AddFortModifierOutProto {
+ int32 Result = 1;
+ int32 FortDetailsOutProto = 2;
+}
+message PokemonCameraAttributesProto {
+ int32 DiskRadiusM = 1;
+ int32 CylRadiusM = 2;
+ int32 CylHeightM = 3;
+ int32 CylGroundM = 4;
+ int32 ShoulderModeScale = 5;
+}
+message PokemonEncounterAttributesProto {
+ int32 BaseCaptureRate = 1;
+ int32 BaseFleeRate = 2;
+ int32 CollisionRadiusM = 3;
+ int32 CollisionHeightM = 4;
+ int32 CollisionHeadRadiusM = 5;
+ int32 MovementType = 6;
+ int32 MovementTimerS = 7;
+ int32 JumpTimeS = 8;
+ int32 AttackTimerS = 9;
+}
+message PokemonStatsAttributesProto {
+ int32 BaseStamina = 1;
+ int32 BaseAttack = 2;
+ int32 BaseDefense = 3;
+ int32 DodgeEnergyDelta = 8;
+}
+message PokemonSettingsProto {
+ int32 UniqueId = 1;
+ int32 ModelScale = 3;
+ int32 Type1 = 4;
+ int32 Type2 = 5;
+ int32 Camera = 6;
+ int32 Encounter = 7;
+ int32 Stats = 8;
+ int32 QuickMoves = 9;
+ int32 CinematicMoves = 10;
+ int32 AnimTime = 11;
+ int32 Evolution = 12;
+ int32 EvolutionPips = 13;
+ int32 PokemonClass = 14;
+ int32 PokedexHeightM = 15;
+ int32 PokedexWeightKg = 16;
+ int32 ParentId = 17;
+ int32 HeightStdDev = 18;
+ int32 WeightStdDev = 19;
+ int32 KmDistanceToHatch = 20;
+ int32 FamilyId = 21;
+ int32 CandyToEvolve = 22;
+}
+message PokeBallAttributesProto {
+ int32 ItemEffect = 1;
+ int32 CaptureMulti = 2;
+ int32 CaptureMultiEffect = 3;
+ int32 ItemEffectMod = 4;
+}
+message PotionAttributesProto {
+ int32 StaPercent = 1;
+ int32 StaAmount = 2;
+}
+message ReviveAttributesProto {
+ int32 StaPercent = 1;
+}
+message BattleAttributesProto {
+ int32 StaPercent = 1;
+ int32 AtkPercent = 2;
+ int32 DefPercent = 3;
+ int32 DurationS = 4;
+}
+message FoodAttributesProto {
+ int32 ItemEffect = 1;
+ int32 ItemEffectPercent = 2;
+ int32 GrowthPercent = 3;
+}
+message InventoryUpgradeAttributesProto {
+ int32 AdditionalStorage = 1;
+ int32 UpgradeType = 2;
+}
+message ExperienceBoostAttributesProto {
+ int32 XpMultiplier = 1;
+ int32 BoostDurationMs = 2;
+}
+message EggIncubatorAttributesProto {
+ int32 IncubatorType = 1;
+ int32 Uses = 2;
+ int32 DistanceMultiplier = 3;
+}
+message IncenseAttributesProto {
+ int32 IncenseLifetimeSeconds = 1;
+ int32 PokemonType = 2;
+ int32 PokemonIncenseTypeProbability = 3;
+ int32 StandingTimeBetweenEncountersSec = 4;
+ int32 MovingTimeBetweenEncounterSec = 5;
+ int32 DistanceRequiredForShorterIntervalMeters = 6;
+ int32 PokemonAttractedLengthSec = 7;
+}
+message FortModifierAttributesProto {
+ int32 ModifierLifetimeSeconds = 1;
+ int32 TroyDiskNumPokemonSpawned = 2;
+}
+message ItemSettingsProto {
+ int32 UniqueId = 1;
+ int32 ItemType = 2;
+ int32 Category = 3;
+ int32 DropFreq = 4;
+ int32 DropTrainerLevel = 5;
+ int32 Pokeball = 6;
+ int32 Potion = 7;
+ int32 Revive = 8;
+ int32 Battle = 9;
+ int32 Food = 10;
+ int32 InventoryUpgrade = 11;
+ int32 XpBoost = 12;
+ int32 Incense = 13;
+ int32 EggIncubator = 14;
+ int32 FortModifier = 15;
+}
+message IapItemDisplayProto {
+ int32 Sku = 1;
+ int32 Category = 2;
+ int32 SortOrder = 3;
+ int32 Items = 4;
+ int32 Counts = 5;
+}
+message MoveSettingsProto {
+ int32 UniqueId = 1;
+ int32 AnimationId = 2;
+ int32 Type = 3;
+ int32 Power = 4;
+ int32 AccuracyChance = 5;
+ int32 CriticalChance = 6;
+ int32 HealScalar = 7;
+ int32 StaminaLossScalar = 8;
+ int32 TrainerLevelMin = 9;
+ int32 TrainerLevelMax = 10;
+ int32 VfxName = 11;
+ int32 DurationMs = 12;
+ int32 DamageWindowStartMs = 13;
+ int32 DamageWindowEndMs = 14;
+ int32 EnergyDelta = 15;
+}
+message MoveSequenceSettingsProto {
+ int32 Sequence = 1;
+}
+message TypeEffectiveSettingsProto {
+ int32 AttackType = 2;
+ int32 AttackScalar = 1;
+}
+message BadgeSettingsProto {
+ int32 BadgeType = 1;
+ int32 BadgeRanks = 2;
+ int32 Targets = 3;
+}
+message CameraSettingsProto {
+ int32 NextCamera = 1;
+ int32 Interpolation = 2;
+ int32 TargetType = 3;
+ int32 EaseInSpeed = 4;
+ int32 EaseOutSpeed = 5;
+ int32 DurationS = 6;
+ int32 WaitS = 7;
+ int32 TransitionS = 8;
+ int32 AngleDeg = 9;
+ int32 AngleOffsetDeg = 10;
+ int32 PitchDeg = 11;
+ int32 PitchOffsetDeg = 12;
+ int32 RollDeg = 13;
+ int32 DistanceM = 14;
+ int32 HeightPercent = 15;
+ int32 VertCtrRatio = 16;
+}
+message PlayerLevelSettingsProto {
+ int32 RankNum = 1;
+ int32 RequiredExp = 2;
+ int32 CpMultiplier = 3;
+ int32 MaxEggPlayerLevel = 4;
+ int32 MaxEncounterPlayerLevel = 5;
+}
+message GymLevelSettingsProto {
+ int32 RequiredExp = 1;
+ int32 LeaderSlots = 2;
+ int32 TrainerSlots = 3;
+ int32 SearchRollBonus = 4;
+}
+message GymBattleSettingsProto {
+ int32 EnergyPerSec = 1;
+ int32 DodgeEnergyCost = 2;
+ int32 RetargetSeconds = 3;
+ int32 EnemyAttackInterval = 4;
+ int32 AttackServerInterval = 5;
+ int32 RoundDurationSeconds = 6;
+ int32 BonusTimePerAllySeconds = 7;
+ int32 MaximumAttackersPerBattle = 8;
+ int32 SameTypeAttackBonusMultiplier = 9;
+ int32 MaximumEnergy = 10;
+ int32 EnergyDeltaPerHealthLost = 11;
+ int32 DodgeDurationMs = 12;
+ int32 MinimumPlayerLevel = 13;
+ int32 SwapDurationMs = 14;
+}
+message EncounterSettingsProto {
+ int32 SpinBonusThreshold = 1;
+ int32 ExcellentThrowThreshold = 2;
+ int32 GreatThrowThreshold = 3;
+ int32 NiceThrowThreshold = 4;
+ int32 MilestoneThreshold = 5;
+}
+message IapSettingsProto {
+ int32 DailyBonusCoins = 1;
+ int32 DailyDefenderBonusPerPokemon = 2;
+ int32 DailyDefenderBonusMaxDefenders = 3;
+ int32 DailyDefenderBonusCurrency = 4;
+ int32 MinTimeBetweenClaimsMs = 5;
+ int32 DailyBonusEnabled = 6;
+ int32 DailyDefenderBonusEnabled = 7;
+}
+message PokemonUpgradeSettingsProto {
+ int32 UpgradesPerLevel = 1;
+ int32 AllowedLevelsAbovePlayer = 2;
+ int32 CandyCost = 3;
+ int32 StardustCost = 4;
+}
+message EquippedBadgeSettingsProto {
+ int32 EquipBadgeCooldownMs = 1;
+ int32 CatchProbabilityBonus = 2;
+ int32 FleeProbabilityBonus = 3;
+}
+message GameMasterClientTemplateProto {
+ int32 TemplateId = 1;
+ int32 Pokemon = 2;
+ int32 Item = 3;
+ int32 Move = 4;
+ int32 MoveSequence = 5;
+ int32 TypeEffective = 8;
+ int32 Badge = 10;
+ int32 Camera = 11;
+ int32 PlayerLevel = 12;
+ int32 GymLevel = 13;
+ int32 BattleSettings = 14;
+ int32 EncounterSettings = 15;
+ int32 IapItemDisplay = 16;
+ int32 IapSettings = 17;
+ int32 PokemonUpgrades = 18;
+ int32 EquippedBadges = 19;
+}
+message GetGameMasterClientTemplatesProto {
+}
+message GetGameMasterClientTemplatesOutProto {
+ int32 Result = 1;
+ int32 Items = 2;
+ int32 Timestamp = 3;
+}
+message GetRemoteConfigVersionsProto {
+ int32 Platform = 1;
+ int32 DeviceManufacturer = 2;
+ int32 DeviceModel = 3;
+ int32 Locale = 4;
+ int32 AppVersion = 5;
+}
+message GetRemoteConfigVersionsOutProto {
+ int32 Result = 1;
+ int32 GameMasterTimestamp = 2;
+ int32 AssetDigestTimestamp = 3;
+}
+message ClientMapCellProto {
+ int32 S2CellId = 1;
+ int32 AsOfTimeMs = 2;
+ int32 Fort = 3;
+ int32 SpawnPoint = 4;
+ int32 WildPokemon = 5;
+ int32 DeletedObject = 6;
+ int32 IsTruncatedList = 7;
+ int32 FortSummary = 8;
+ int32 DecimatedSpawnPoint = 9;
+ int32 CatchablePokemon = 10;
+ int32 NearbyPokemon = 11;
+}
+message GetMapObjectsProto {
+ int32 CellId = 1;
+ int32 SinceTimeMs = 2;
+ int32 PlayerLat = 3;
+ int32 PlayerLng = 4;
+}
+message GetMapObjectsOutProto {
+ int32 MapCell = 1;
+ int32 Status = 2;
+}
+message NearbyPokemonProto {
+ int32 PokedexNumber = 1;
+ int32 DistanceMeters = 2;
+ int32 EncounterId = 3;
+}
+message GetGymDetailsProto {
+ int32 GymId = 1;
+ int32 PlayerLatDegrees = 2;
+ int32 PlayerLngDegrees = 3;
+ int32 GymLatDegrees = 4;
+ int32 GymLngDegrees = 5;
+}
+message GetGymDetailsOutProto {
+ int32 GymState = 1;
+ int32 Name = 2;
+ int32 Url = 3;
+ int32 Result = 4;
+ int32 Description = 5;
+}
+message GymStateProto {
+ int32 FortMapData = 1;
+ int32 GymMembership = 2;
+}
+message StartGymBattleProto {
+ int32 GymId = 1;
+ int32 AttackingPokemonId = 2;
+ int32 DefendingPokemonId = 3;
+ int32 PlayerLatDegrees = 4;
+ int32 PlayerLngDegrees = 5;
+}
+message StartGymBattleOutProto {
+ int32 Result = 1;
+ int32 BattleStartMs = 2;
+ int32 BattleEndMs = 3;
+ int32 BattleId = 4;
+ int32 Defender = 5;
+ int32 BattleLog = 6;
+}
+message AttackGymProto {
+ int32 GymId = 1;
+ int32 BattleId = 2;
+ int32 AttackerActions = 3;
+ int32 LastRetrievedAction = 4;
+ int32 PlayerLatDegrees = 5;
+ int32 PlayerLngDegrees = 6;
+}
+message BattleActionProto {
+ int32 Type = 1;
+ int32 ActionStartMs = 2;
+ int32 DurationMs = 3;
+ int32 EnergyDelta = 5;
+ int32 AttackerIndex = 6;
+ int32 TargetIndex = 7;
+ int32 ActivePokemonId = 8;
+ int32 JoinedPlayer = 9;
+ int32 BattleResults = 10;
+ int32 DamageWindowStartMs = 11;
+ int32 DamageWindowEndMs = 12;
+ int32 QuitPlayer = 13;
+ int32 TargetPokemonId = 14;
+}
+message AttackGymOutProto {
+ int32 Result = 1;
+ int32 BattleLog = 2;
+ int32 BattleId = 3;
+ int32 ActiveDefender = 4;
+ int32 ActiveAttacker = 5;
+}
+message GymMembershipProto {
+ int32 Pokemon = 1;
+ int32 TrainerPublicProfile = 2;
+}
+message BattleParticipantProto {
+ int32 ActivePokemon = 1;
+ int32 TrainerPublicProfile = 2;
+ int32 ReservePokemon = 3;
+ int32 DefeatedPokemon = 4;
+}
+message BattleResultsProto {
+ int32 GymState = 1;
+ int32 Attackers = 2;
+ int32 PlayerXpAwarded = 3;
+ int32 NextDefenderPokemonId = 4;
+ int32 GymPointsDelta = 5;
+}
+message BattleLogProto {
+ int32 State = 1;
+ int32 BattleType = 2;
+ int32 ServerMs = 3;
+ int32 BattleActions = 4;
+ int32 BattleStartMs = 5;
+ int32 BattleEndMs = 6;
+}
+message HoloInventoryKeyProto {
+ int32 PokemonId = 1;
+ int32 Item = 2;
+ int32 PokedexEntryId = 3;
+ int32 PlayerStats = 4;
+ int32 PlayerCurrency = 5;
+ int32 PlayerCamera = 6;
+ int32 InventoryUpgrades = 7;
+ int32 AppliedItems = 8;
+ int32 EggIncubators = 9;
+ int32 PokemonFamilyId = 10;
+}
+message HoloInventoryItemProto {
+ int32 Pokemon = 1;
+ int32 Item = 2;
+ int32 PokedexEntry = 3;
+ int32 PlayerStats = 4;
+ int32 PlayerCurrency = 5;
+ int32 PlayerCamera = 6;
+ int32 InventoryUpgrades = 7;
+ int32 AppliedItems = 8;
+ int32 EggIncubators = 9;
+ int32 PokemonFamily = 10;
+}
+message PokemonProto {
+ int32 Id = 1;
+ int32 PokemonId = 2;
+ int32 Cp = 3;
+ int32 Stamina = 4;
+ int32 MaxStamina = 5;
+ int32 Move1 = 6;
+ int32 Move2 = 7;
+ int32 DeployedFortId = 8;
+ int32 OwnerName = 9;
+ int32 IsEgg = 10;
+ int32 EggKmWalkedTarget = 11;
+ int32 EggKmWalkedStart = 12;
+ int32 Origin = 14;
+ int32 HeightM = 15;
+ int32 WeightKg = 16;
+ int32 IndividualAttack = 17;
+ int32 IndividualDefense = 18;
+ int32 IndividualStamina = 19;
+ int32 CpMultiplier = 20;
+ int32 Pokeball = 21;
+ int32 CapturedS2CellId = 22;
+ int32 BattlesAttacked = 23;
+ int32 BattlesDefended = 24;
+ int32 EggIncubatorId = 25;
+ int32 CreationTimeMs = 26;
+ int32 NumUpgrades = 27;
+ int32 AdditionalCpMultiplier = 28;
+ int32 Favorite = 29;
+ int32 Nickname = 30;
+ int32 FromFort = 31;
+}
+message ItemProto {
+ int32 Item = 1;
+ int32 Count = 2;
+ int32 Unseen = 3;
+}
+message PokedexEntryProto {
+ int32 PokedexEntryNumber = 1;
+ int32 TimesEncountered = 2;
+ int32 TimesCaptured = 3;
+ int32 EvolutionStonePieces = 4;
+ int32 EvolutionStones = 5;
+}
+message PlayerStatsProto {
+ int32 Level = 1;
+ int32 Experience = 2;
+ int32 PrevLevelExp = 3;
+ int32 NextLevelExp = 4;
+ int32 KmWalked = 5;
+ int32 NumPokemonEncountered = 6;
+ int32 NumUniquePokedexEntries = 7;
+ int32 NumPokemonCaptured = 8;
+ int32 NumEvolutions = 9;
+ int32 PokeStopVisits = 10;
+ int32 NumberOfPokeballThrown = 11;
+ int32 NumEggsHatched = 12;
+ int32 BigMagikarpCaught = 13;
+ int32 NumBattleAttackWon = 14;
+ int32 NumBattleAttackTotal = 15;
+ int32 NumBattleDefendedWon = 16;
+ int32 NumBattleTrainingWon = 17;
+ int32 NumBattleTrainingTotal = 18;
+ int32 PrestigeRaisedTotal = 19;
+ int32 PrestigeDroppedTotal = 20;
+ int32 NumPokemonDeployed = 21;
+ int32 NumPokemonCaughtByType = 22;
+ int32 SmallRattataCaught = 23;
+}
+message PlayerCurrencyProto {
+ int32 Gems = 1;
+}
+message PlayerCameraProto {
+ int32 DefaultCamera = 1;
+}
+message InventoryUpgradesProto {
+ int32 InventoryUpgrade = 1;
+}
+message InventoryUpgradeProto {
+ int32 Item = 1;
+ int32 UpgradeType = 2;
+ int32 AdditionalStorage = 3;
+}
+message EggIncubatorsProto {
+ int32 EggIncubator = 1;
+}
+message EggIncubatorProto {
+ int32 ItemId = 1;
+ int32 Item = 2;
+ int32 IncubatorType = 3;
+ int32 UsesRemaining = 4;
+ int32 PokemonId = 5;
+ int32 StartKmWalked = 6;
+ int32 TargetKmWalked = 7;
+}
+message AppliedItemsProto {
+ int32 Item = 4;
+}
+message AppliedItemProto {
+ int32 Item = 1;
+ int32 ItemType = 2;
+ int32 ExpirationMs = 3;
+ int32 AppliedMs = 4;
+}
+message PokemonFamilyProto {
+ int32 FamilyId = 1;
+ int32 Candy = 2;
+}
+message PlayerPublicProfileProto {
+ int32 Name = 1;
+ int32 Level = 2;
+ int32 Avatar = 3;
+}
+message PlayerAvatarProto {
+ int32 Avatar = 8;
+ int32 Skin = 2;
+ int32 Hair = 3;
+ int32 Shirt = 4;
+ int32 Pants = 5;
+ int32 Hat = 6;
+ int32 Shoes = 7;
+ int32 Eyes = 9;
+ int32 Backpack = 10;
+}
+message InventoryProto {
+ int32 InventoryItem = 1;
+}
+message InventoryItemProto {
+ int32 ModifiedTimestamp = 1;
+ int32 DeletedItemKey = 2;
+ int32 Item = 3;
+}
+message InventoryDeltaProto {
+ int32 OriginalTimestamp = 1;
+ int32 NewTimestamp = 2;
+ int32 InventoryItem = 3;
+}
+message PlayerBadgeProto {
+ int32 BadgeType = 1;
+ int32 Rank = 2;
+ int32 StartValue = 3;
+ int32 EndValue = 4;
+ int32 CurrentValue = 5;
+}
+message PlayerProfileProto {
+ int32 PlayerName = 1;
+}
+message PlayerProfileOutProto {
+ int32 Result = 1;
+ int32 StartTime = 2;
+ int32 Badges = 3;
+}
+message LevelUpRewardsProto {
+ int32 Level = 1;
+}
+message LevelUpRewardsOutProto {
+ int32 Result = 1;
+ int32 Items = 2;
+ int32 ItemsUnlocked = 4;
+}
+message PokemonFortProto {
+ int32 FortId = 1;
+ int32 LastModifiedMs = 2;
+ int32 Latitude = 3;
+ int32 Longitude = 4;
+ int32 Team = 5;
+ int32 GuardPokemonId = 6;
+ int32 GuardPokemonLevel = 7;
+ int32 Enabled = 8;
+ int32 FortType = 9;
+ int32 GymPoints = 10;
+ int32 IsInBattle = 11;
+ int32 ActiveFortModifier = 12;
+ int32 ActivePokemon = 13;
+ int32 CooldownCompleteMs = 14;
+ int32 Sponsor = 15;
+ int32 RenderingType = 16;
+}
+message PokemonSummaryFortProto {
+ int32 FortSummaryId = 1;
+ int32 LastModifiedMs = 2;
+ int32 Latitude = 3;
+ int32 Longitude = 4;
+}
+message ClientSpawnPointProto {
+ int32 Latitude = 2;
+ int32 Longitude = 3;
+}
+message WildPokemonProto {
+ int32 EncounterId = 1;
+ int32 LastModifiedMs = 2;
+ int32 Latitude = 3;
+ int32 Longitude = 4;
+ int32 SpawnPointId = 5;
+ int32 Pokemon = 7;
+ int32 TimeTillHiddenMs = 11;
+}
+message MapPokemonProto {
+ int32 SpawnpointId = 1;
+ int32 EncounterId = 2;
+ int32 PokedexTypeId = 3;
+ int32 ExpirationTimeMs = 4;
+ int32 Latitude = 5;
+ int32 Longitude = 6;
+}
+message ClientPlayerProto {
+ int32 CreationTimeMs = 1;
+ int32 Name = 2;
+ int32 Team = 5;
+ int32 TutorialComplete = 7;
+ int32 PlayerAvatarProto = 8;
+ int32 MaxPokemonStorage = 9;
+ int32 MaxItemStorage = 10;
+ int32 DailyBonusProto = 11;
+ int32 EquippedBadgeProto = 12;
+ int32 ContactSettingsProto = 13;
+ int32 CurrencyBalance = 14;
+}
+message CurrencyQuantityProto {
+ int32 CurrencyType = 1;
+ int32 Quantity = 2;
+}
+message ContactSettingsProto {
+ int32 SendMarketingEmails = 1;
+ int32 SendPushNotifications = 2;
+}
+message DailyBonusProto {
+ int32 NextCollectTimestampMs = 1;
+ int32 NextDefenderBonusCollectTimestampMs = 2;
+}
+message EquippedBadgeProto {
+ int32 EquippedBadge = 1;
+ int32 Level = 2;
+ int32 NextEquipChangeAllowedTimestampMs = 3;
+}
+message GetPlayerProto {
+}
+message GetPlayerOutProto {
+ int32 Success = 1;
+ int32 Player = 2;
+}
+message PlayerUpdateProto {
+ int32 Lat = 1;
+ int32 Lng = 2;
+}
+message PlayerUpdateOutProto {
+ int32 WildPokemon = 1;
+ int32 Fort = 2;
+ int32 FortsNearby = 3;
+}
+message GetInventoryProto {
+ int32 TimestampMillis = 1;
+ int32 ItemBeenSeen = 2;
+}
+message GetInventoryOutProto {
+ int32 Success = 1;
+ int32 InventoryDelta = 2;
+}
+message DebugUpdateInventoryProto {
+ int32 Pokemon = 1;
+ int32 Item = 2;
+}
+message DebugUpdateInventoryOutProto {
+ int32 Success = 1;
+}
+message SetFavoritePokemonProto {
+ int32 PokemonId = 1;
+ int32 IsFavorite = 2;
+}
+message SetFavoritePokemonOutProto {
+ int32 Result = 1;
+}
+message ReleasePokemonProto {
+ int32 PokemonId = 1;
+ int32 PokemonIds = 2;
+}
+message ReleasePokemonOutProto {
+ int32 Status = 1;
+ int32 CandyAwarded = 2;
+}
+message NicknamePokemonProto {
+ int32 PokemonId = 1;
+ int32 Nickname = 2;
+}
+message NicknamePokemonOutProto {
+ int32 Result = 1;
+}
+message DebugDeletePlayerProto {
+}
+message DebugDeletePlayerOutProto {
+ int32 Success = 1;
+}
+message GetSuggestedCodenamesRequestProto {
+}
+message GetSuggestedCodenamesResponseProto {
+ int32 Codename = 1;
+ int32 Success = 2;
+}
+message CheckCodenameAvailableRequestProto {
+ int32 Codename = 1;
+}
+message ClaimCodenameRequestProto {
+ int32 Codename = 1;
+}
+message CodenameResultProto {
+ int32 Codename = 1;
+ int32 UserMessage = 2;
+ int32 IsAssignable = 3;
+ int32 Status = 4;
+}
+message SetAvatarProto {
+ int32 PlayerAvatarProto = 2;
+}
+message SetAvatarOutProto {
+ int32 Status = 1;
+ int32 Player = 2;
+}
+message SetContactSettingsProto {
+ int32 ContactSettingsProto = 1;
+}
+message SetContactSettingsOutProto {
+ int32 Status = 1;
+ int32 Player = 2;
+}
+message SetPlayerTeamProto {
+ int32 Team = 1;
+}
+message SetPlayerTeamOutProto {
+ int32 Status = 1;
+ int32 Player = 2;
+}
+message MarkTutorialCompleteProto {
+ int32 TutorialComplete = 1;
+ int32 SendMarketingEmails = 2;
+ int32 SendPushNotifications = 3;
+}
+message MarkTutorialCompleteOutProto {
+ int32 Success = 1;
+ int32 Player = 2;
+}
+message CheckAwardedBadgesProto {
+}
+message CheckAwardedBadgesOutProto {
+ int32 Success = 1;
+ int32 AwardedBadges = 2;
+ int32 AwardedBadgeLevels = 3;
+}
+message RecycleItemProto {
+ int32 Item = 1;
+ int32 Count = 2;
+}
+message RecycleItemOutProto {
+ int32 Result = 1;
+ int32 NewCount = 2;
+}
+message EquipBadgeProto {
+ int32 Badge = 1;
+}
+message EquipBadgeOutProto {
+ int32 Result = 1;
+ int32 Equipped = 2;
+}
+message GlobalSettingsProto {
+ int32 FortSettings = 2;
+ int32 MapSettings = 3;
+ int32 LevelSettings = 4;
+ int32 InventorySettings = 5;
+ int32 MinimumClientVersion = 6;
+}
+message FortSettingsProto {
+ int32 InteractionRangeMeters = 1;
+ int32 MaxTotalDeployedPokemon = 2;
+ int32 MaxPlayerDeployedPokemon = 3;
+ int32 DeployStaminaMultiplier = 4;
+ int32 DeployAttackMultiplier = 5;
+ int32 FarInteractionRangeMeters = 6;
+}
+message MapSettingsProto {
+ int32 PokemonVisibleRange = 1;
+ int32 PokeNavRangeMeters = 2;
+ int32 EncounterRangeMeters = 3;
+ int32 GetMapObjectsMinRefreshSeconds = 4;
+ int32 GetMapObjectsMaxRefreshSeconds = 5;
+ int32 GetMapObjectsMinDistanceMeters = 6;
+ int32 GoogleMapsApiKey = 7;
+}
+message LevelSettingsProto {
+ int32 TrainerCpModifier = 2;
+ int32 TrainerDifficultyModifier = 3;
+}
+message InventorySettingsProto {
+ int32 MaxPokemon = 1;
+ int32 MaxBagItems = 2;
+ int32 BasePokemon = 3;
+ int32 BaseBagItems = 4;
+ int32 BaseEggs = 5;
+}
+message DownloadSettingsActionProto {
+ int32 Sha1 = 1;
+}
+message DownloadSettingsResponseProto {
+ int32 Error = 1;
+ int32 Sha1 = 2;
+ int32 Values = 3;
+}
+message TradingSearchProto {
+ int32 Lat = 1;
+ int32 Lng = 2;
+}
+message TradingSearchOutProto {
+ int32 Result = 1;
+ int32 PlayerNames = 2;
+}
+message TradingOfferProto {
+ int32 TradingPlayer = 1;
+ int32 PokemonId = 2;
+}
+message TradingOfferOutProto {
+ int32 Result = 1;
+ int32 TradeId = 2;
+}
+message PollForTradeResponseProto {
+ int32 TradeId = 1;
+ int32 PokemonId = 2;
+ int32 RequestCancel = 3;
+}
+message PollForTradeResponseOutProto {
+ int32 Result = 1;
+ int32 ReturnPokemon = 2;
+}
+message TradingResultProto {
+ int32 TradeId = 1;
+ int32 PlayerAccept = 2;
+}
+message TradingResultOutProto {
+ int32 Result = 1;
+}
+message UpgradePokemonProto {
+ int32 PokemonId = 1;
+}
+message UpgradePokemonOutProto {
+ int32 Result = 1;
+ int32 UpgradedPokemon = 2;
+}
+message UseItemPotionProto {
+ int32 Item = 1;
+ int32 PokemonId = 2;
+}
+message UseItemPotionOutProto {
+ int32 Result = 1;
+ int32 Stamina = 2;
+}
+message UseItemReviveProto {
+ int32 Item = 1;
+ int32 PokemonId = 2;
+}
+message UseItemReviveOutProto {
+ int32 Result = 1;
+ int32 Stamina = 2;
+}
+message UseItemGymProto {
+ int32 Item = 1;
+ int32 GymId = 2;
+ int32 PlayerLatDegrees = 3;
+ int32 PlayerLngDegrees = 4;
+}
+message UseItemGymOutProto {
+ int32 Result = 1;
+ int32 UpdatedGp = 2;
+}
+message UseItemXpBoostProto {
+ int32 Item = 1;
+}
+message UseItemXpBoostOutProto {
+ int32 Result = 1;
+ int32 AppliedItems = 2;
+}
+message UseItemEggIncubatorProto {
+ int32 ItemId = 1;
+ int32 PokemondId = 2;
+}
+message UseItemEggIncubatorOutProto {
+ int32 Result = 1;
+ int32 EggIncubator = 2;
+}
+message PokemonProtoExtensions {
+}
+message <PokemonProtoToRecyclerBinding>c__AnonStorey18B {
+}
+message RecyclerViewPrototype {
+}
