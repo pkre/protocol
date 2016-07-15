@@ -6,12 +6,13 @@ message ResponseEnvelop {
   repeated Response responses = 100;
 
   message Response {
-    required bytes message = 1;
+    //optional bytes message = 1;
+    repeated MapTile entries = 1;
   }
 
   message Unknown6 {
-    required int32 unknown1 = 1;
-    required Unknown2 unknown2 = 2;
+    optional int32 unknown1 = 1;
+    optional Unknown2 unknown2 = 2;
 
     message Unknown2 {
       required int32 unknown1 = 1;
@@ -26,14 +27,14 @@ message MapTile {
   repeated Fort forts = 3;
   repeated ClientSpawnPoint spawn_point = 4; // grass?
   repeated WildPokemon wild_pokemon = 5;
-  optional int32 is_truncated = 1;
+  //optional int32 is_truncated = 1;
   optional ClientSpawnPoint decimated_spawn_point = 9; //wtf?
   optional MapPokemon catchable_pokemon = 10;
   optional NearbyPokemon nearby_pokemon = 11;
 
   message NearbyPokemon {
     required int32 pokedex_number = 1;
-    required fixed32 distance_meters = 2;
+    required float distance_meters = 2;
     required fixed64 encounter_id = 3;
   }
 
@@ -42,13 +43,20 @@ message MapTile {
   message Fort {
     required string fort_id = 1;
     required int32 last_modified_time = 2;
-    required fixed64 lat = 3;
-    required fixed64 lng = 4;
-    optional int32 team = 5; // blue=1, red=2, yellow=3
+    required double lat = 3;
+    required double lng = 4;
+
+    enum Team {
+      BLUE = 1;
+      RED = 2;
+      YELLOW = 3;
+    }
+    optional Team team = 5; // blue=1, red=2, yellow=3
     optional int32 guard_pokemon_id = 6;
     optional int32 guard_pokemon_level = 7;
     optional int32 enabled = 8;
-    optional int32 fort_type = 9;
+
+    optional bool is_pokestop = 9;
     optional int32 gym_points = 10; // prestige
     optional int32 active_module = 11;
     // TODO: verify the dump.proto is correct
@@ -65,15 +73,16 @@ message MapTile {
 
   // dump.proto L832
   message ClientSpawnPoint {
-    required fixed64 lat = 2;
-    required fixed64 lng = 3;
+    required double lat = 2;
+    required double lng = 3;
   }
+
   // dump.proto L836
   message WildPokemon {
     required fixed64 encounter_id = 1;
     required int64 last_modified_time = 2;
-    required fixed64 lat = 3;
-    required fixed64 lng = 4;
+    required double lat = 3;
+    required double lng = 4;
     required string spawn_point_id = 5;
     required PokeInfo info = 7;
     required int64 time_till_hidden = 11;
@@ -87,9 +96,9 @@ message MapTile {
   message MapPokemon {
     required string spawn_point_id = 1;
     required fixed64 encounter_id = 2;
-    required int32 pkmn_no = 3
+    required int32 pkmn_no = 3;
     required int32 time = 4; //disapper time
-    required fixed64 lat = 5;
-    required fixed64 lng = 6;
+    required double lat = 5;
+    required double lng = 6;
   }
 }
